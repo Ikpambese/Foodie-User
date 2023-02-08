@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_userapp/assistants/address_changer.dart';
+import 'package:food_userapp/maps/maps.dart';
 import 'package:food_userapp/models/address.dart';
+import 'package:food_userapp/screens/placed_order.dart';
 import 'package:provider/provider.dart';
 
 class AddressDesign extends StatefulWidget {
@@ -117,7 +119,14 @@ class _AddressDesignState extends State<AddressDesign> {
               ],
             ),
             ElevatedButton(
-              onPressed: (() {}),
+              onPressed: (() async {
+                try {
+                  await MapsUtils.openMap(
+                      widget.model!.lat!, widget.model!.lng!);
+                } catch (e) {
+                  print(e.toString());
+                }
+              }),
               style: ElevatedButton.styleFrom(backgroundColor: Colors.black54),
               child: const Text('Check in Maps'),
             ),
@@ -126,7 +135,16 @@ class _AddressDesignState extends State<AddressDesign> {
 
             widget.value == Provider.of<AddressChanger>(context).count
                 ? ElevatedButton(
-                    onPressed: (() {}),
+                    onPressed: (() {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PlacedOrderScreen(
+                                    addressID: widget.addressID,
+                                    totalAmount: widget.totalAmount,
+                                    sellerUID: widget.sellerUID,
+                                  )));
+                    }),
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.green),
                     child: const Text('Proceed'),
