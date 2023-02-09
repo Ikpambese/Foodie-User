@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:food_userapp/assistants/cartitem_counter.dart';
 import 'package:food_userapp/global/global.dart';
-import 'package:food_userapp/splash/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 seperateItemIDs() {
@@ -15,11 +14,9 @@ seperateItemIDs() {
     String item = defaultItemList[i].toString();
     var pos = item.lastIndexOf(':');
     String getItemId = (pos != -1) ? item.substring(0, pos) : item;
-    print('\nthis is itemID now ' + getItemId);
     seperateItemIDsList.add(getItemId);
   }
-  print('\nthis is items lis now ');
-  print(seperateItemIDsList);
+
   return seperateItemIDsList;
 }
 
