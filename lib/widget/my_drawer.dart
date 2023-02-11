@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_userapp/authentication/auth_screen.dart';
 import 'package:food_userapp/global/global.dart';
+import 'package:food_userapp/screens/home_screen.dart';
+import 'package:food_userapp/screens/my_orders_screen.dart';
 
 class MyDrawer extends StatelessWidget {
   @override
@@ -55,7 +57,12 @@ class MyDrawer extends StatelessWidget {
                     'Home',
                     style: TextStyle(color: Colors.black),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomeScreen()));
+                  },
                 ),
                 const Divider(height: 10, color: Colors.grey, thickness: 2),
                 ListTile(
@@ -64,7 +71,12 @@ class MyDrawer extends StatelessWidget {
                     'My Order',
                     style: TextStyle(color: Colors.black),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MyOrderScreen()));
+                  },
                 ),
                 const Divider(height: 10, color: Colors.grey, thickness: 2),
                 ListTile(

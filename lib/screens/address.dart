@@ -23,7 +23,9 @@ class _AddressScreenState extends State<AddressScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SimpleAppBar(),
+      appBar: SimpleAppBar(
+        title: 'AFOODIE',
+      ),
       floatingActionButton: FloatingActionButton.extended(
         icon: const Icon(Icons.add_location),
         backgroundColor: Colors.cyan,
