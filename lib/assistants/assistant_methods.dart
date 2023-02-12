@@ -5,19 +5,29 @@ import 'package:food_userapp/assistants/cartitem_counter.dart';
 import 'package:food_userapp/global/global.dart';
 import 'package:provider/provider.dart';
 
-seperateOrderIDs(orderIDs) {
-  List<String> seperateItemIDsList = [], defaultItemList = [];
+seperateOrderItemIDs(orderIDs) {
+  List<String> separateItemIDsList = [], defaultItemList = [];
   int i = 0;
+
   defaultItemList = List<String>.from(orderIDs);
 
   for (i; i < defaultItemList.length; i++) {
+    //56557657:7
     String item = defaultItemList[i].toString();
-    var pos = item.lastIndexOf(':');
+    var pos = item.lastIndexOf(":");
+
+    //56557657
     String getItemId = (pos != -1) ? item.substring(0, pos) : item;
-    seperateItemIDsList.add(getItemId);
+
+    print("\nThis is itemID now = " + getItemId);
+
+    separateItemIDsList.add(getItemId);
   }
 
-  return seperateItemIDsList;
+  print("\nThis is Items List now = ");
+  print(separateItemIDsList);
+
+  return separateItemIDsList;
 }
 
 seperateItemIDs() {
@@ -74,30 +84,39 @@ seperateItemQuantities() {
   return seperateItemQtyList;
 }
 
-seperateORderItemQuantities(oderIDs) {
-  List<String> seperateItemQtyList = [];
+seperateORderItemQuantities(orderIDs) {
+  List<String> separateItemQuantityList = [];
   List<String> defaultItemList = [];
   int i = 1;
-  defaultItemList = List<String>.from(oderIDs);
+
+  defaultItemList = List<String>.from(orderIDs);
 
   for (i; i < defaultItemList.length; i++) {
+    //56557657:7
     String item = defaultItemList[i].toString();
 
-    List<String> listItemCharacters = item.split(':').toList();
+    //0=:
+    //1=7
+    //:7
+    List<String> listItemCharacters = item.split(":").toList();
 
+    //7
     var quanNumber = int.parse(listItemCharacters[1].toString());
-    print('\nthis is itemID now ' + quanNumber.toString());
-    seperateItemQtyList.add(quanNumber.toString());
+
+    print("\nThis is Quantity Number = " + quanNumber.toString());
+
+    separateItemQuantityList.add(quanNumber.toString());
   }
-  print('\nthis is items lis now ');
-  print(seperateItemQtyList);
-  return seperateItemQtyList;
+
+  print("\nThis is Quantity List now = ");
+  print(separateItemQuantityList);
+
+  return separateItemQuantityList;
 }
 
 clearCartNow(context) {
   sharedPreferences!.setStringList('userCart', ['garbageValue']);
   List<String>? emptyList = sharedPreferences!.getStringList('userCart');
-
   //Update
   //
   FirebaseFirestore.instance
@@ -105,9 +124,5 @@ clearCartNow(context) {
       .doc(firebaseAuth.currentUser!.uid)
       .update({'userCart': emptyList}).then((value) {
     sharedPreferences!.setStringList('userCart', emptyList!);
-
-    // Provider.of<CartItemCounter>(context, listen: false)
-    //     .displayCartListItemsNumber();
-    // Fluttertoast.showToast(msg: 'Cart has been Cleared');
   });
 }

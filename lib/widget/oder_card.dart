@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:food_userapp/models/items.dart';
+import 'package:food_userapp/screens/order_details_screen.dart';
 
 class OrderCard extends StatelessWidget {
   final int? itemCount;
@@ -14,7 +15,10 @@ class OrderCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        //todo
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (c) => OrderDeatilsScreen(orderID: orderID)));
       },
       child: Container(
         decoration: const BoxDecoration(
@@ -31,14 +35,18 @@ class OrderCard extends StatelessWidget {
         ),
         padding: const EdgeInsets.all(10),
         margin: const EdgeInsets.all(10),
-        child: ListView.builder(
-            itemCount: itemCount,
-            physics: const NeverScrollableScrollPhysics(),
-            itemBuilder: ((context, index) {
-              Items model =
-                  Items.fromJson(data![index].data()! as Map<String, dynamic>);
-              return placedOrderDesign(model, context, seperateQuantiesList);
-            })),
+        child: SizedBox(
+          height: itemCount! * 125,
+          child: ListView.builder(
+              itemCount: itemCount,
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: ((context, index) {
+                Items model = Items.fromJson(
+                    data![index].data()! as Map<String, dynamic>);
+                return placedOrderDesign(
+                    model, context, seperateQuantiesList.toString());
+              })),
+        ),
       ),
     );
   }
@@ -59,6 +67,9 @@ Widget placedOrderDesign(Items model, BuildContext context, seperateQuantList) {
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(
+              height: 20,
+            ),
             Row(
               children: [
                 Expanded(
@@ -76,14 +87,17 @@ Widget placedOrderDesign(Items model, BuildContext context, seperateQuantList) {
                 ),
                 Text(
                   model.price.toString(),
-                  style: const TextStyle(fontSize: 16, color: Colors.blue),
+                  style: const TextStyle(fontSize: 18, color: Colors.blue),
                 )
               ],
+            ),
+            const SizedBox(
+              height: 20,
             ),
             Row(
               children: [
                 const Text(
-                  'X',
+                  'x',
                   style: TextStyle(fontSize: 14, color: Colors.black54),
                 ),
                 Expanded(

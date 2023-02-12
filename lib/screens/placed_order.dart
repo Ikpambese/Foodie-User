@@ -24,7 +24,7 @@ class _PlacedOrderScreenState extends State<PlacedOrderScreen> {
       'productIDs': sharedPreferences!.getStringList('userCart'),
       'paymentDetails': 'Cash on Delivery',
       'orderTime': orderId,
-      'isSuccess': 'isSuccess',
+      'isSuccess': true,
       'sellerUID': widget.sellerUID,
       'riderUID': '',
       'status': 'normal',
@@ -32,12 +32,12 @@ class _PlacedOrderScreenState extends State<PlacedOrderScreen> {
     });
     writeOrderDetailsForSeller({
       'addressID': widget.addressID,
-      'totalAmounr': widget.totalAmount,
+      'totalAmount': widget.totalAmount,
       'orderBy': sharedPreferences!.getString('uid'),
       'productIDs': sharedPreferences!.getStringList('userCart'),
       'paymentDetails': 'Cash on Delivery',
       'orderTime': orderId,
-      'isSuccess': 'isSuccess',
+      'isSuccess': true,
       'sellerUID': widget.sellerUID,
       'riderUID': '',
       'status': 'normal',
