@@ -114,6 +114,7 @@ class _CartScreenState extends State<CartScreen> {
         Align(
           alignment: Alignment.bottomLeft,
           child: FloatingActionButton.extended(
+            heroTag: 'btn2',
             label: const Text('Clear Cart'),
             backgroundColor: Colors.cyan,
             icon: const Icon(Icons.clear_all),
@@ -128,6 +129,7 @@ class _CartScreenState extends State<CartScreen> {
         Align(
           alignment: Alignment.bottomLeft,
           child: FloatingActionButton.extended(
+            heroTag: 'btn1',
             label: const Text(
               'Check Out',
               style: TextStyle(fontSize: 16),
@@ -143,6 +145,8 @@ class _CartScreenState extends State<CartScreen> {
                       sellerUID: widget.sellerUID,
                     ),
                   ));
+              print(totalAmount);
+              print(totalAmount.toDouble());
             }),
           ),
         ),

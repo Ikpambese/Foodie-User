@@ -137,13 +137,18 @@ class _AddressDesignState extends State<AddressDesign> {
                 ? ElevatedButton(
                     onPressed: (() {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => PlacedOrderScreen(
-                                    addressID: widget.addressID,
-                                    totalAmount: widget.totalAmount,
-                                    sellerUID: widget.sellerUID,
-                                  )));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PlacedOrderScreen(
+                            addressID: widget.addressID,
+                            totalAmount: widget.totalAmount,
+                            sellerUID: widget.sellerUID,
+                          ),
+                        ),
+                      );
+
+                      print(widget.totalAmount);
+                      print(widget.totalAmount.runtimeType);
                     }),
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.green),

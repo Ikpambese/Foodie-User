@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_is_empty
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:food_userapp/assistants/address_changer.dart';
@@ -13,13 +15,21 @@ import '../global/global.dart';
 class AddressScreen extends StatefulWidget {
   final double? totalAmount;
   final String? sellerUID;
-  const AddressScreen({this.sellerUID, this.totalAmount});
+  AddressScreen({this.sellerUID, this.totalAmount});
 
   @override
   State<AddressScreen> createState() => _AddressScreenState();
 }
 
 class _AddressScreenState extends State<AddressScreen> {
+  @override
+  void initState() {
+    print('HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH');
+    print(widget.totalAmount);
+    print('HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH');
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +53,7 @@ class _AddressScreenState extends State<AddressScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Align(
+          const Align(
             alignment: Alignment.centerLeft,
             child: Padding(
               padding: EdgeInsets.all(8),
@@ -79,6 +89,7 @@ class _AddressScreenState extends State<AddressScreen> {
                                 value: index,
                                 addressID: snapshot.data!.docs[index].id,
                                 sellerUID: widget.sellerUID,
+                                totalAmount: widget.totalAmount,
                                 model: Address.fromJson(
                                     snapshot.data!.docs[index].data()!
                                         as Map<String, dynamic>),

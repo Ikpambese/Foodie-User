@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -9,7 +11,8 @@ class PlacedOrderScreen extends StatefulWidget {
   String? addressID;
   double? totalAmount;
   String? sellerUID;
-  PlacedOrderScreen({this.addressID, this.sellerUID, this.totalAmount});
+  PlacedOrderScreen(
+      {super.key, this.addressID, this.sellerUID, this.totalAmount});
   @override
   State<PlacedOrderScreen> createState() => _PlacedOrderScreenState();
 }
@@ -52,7 +55,9 @@ class _PlacedOrderScreenState extends State<PlacedOrderScreen> {
             builder: (context) => const HomeScreen(),
           ),
         );
-        Fluttertoast.showToast(msg: 'Congratulations, Order has been placed');
+        Fluttertoast.showToast(
+            msg: 'Congratulations, Order has been placed',
+            textColor: Colors.green);
       });
     });
   }
@@ -98,6 +103,10 @@ class _PlacedOrderScreenState extends State<PlacedOrderScreen> {
             ElevatedButton(
               onPressed: (() {
                 addOrderDetails();
+                //
+                print('====================================');
+                print(widget.totalAmount);
+                print('====================================');
               }),
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
