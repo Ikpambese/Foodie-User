@@ -8,11 +8,8 @@ class TotalAmount extends ChangeNotifier {
   displayTotalAmount(double number) async {
     _totalAmount = number;
 
-    await Future.delayed(
-      const Duration(microseconds: 100),
-      (() {
-        notifyListeners();
-      }),
-    );
+    await Future.delayed(const Duration(milliseconds: 100), () {
+      notifyListeners();
+    });
   }
 }
