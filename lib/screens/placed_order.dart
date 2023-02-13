@@ -19,7 +19,7 @@ class _PlacedOrderScreenState extends State<PlacedOrderScreen> {
   addOrderDetails() {
     writeOrderDetailsForUSer({
       'addressID': widget.addressID,
-      'totalAmounr': widget.totalAmount,
+      'totalAmount': widget.totalAmount,
       'orderBy': sharedPreferences!.getString('uid'),
       'productIDs': sharedPreferences!.getStringList('userCart'),
       'paymentDetails': 'Cash on Delivery',

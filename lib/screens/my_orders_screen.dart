@@ -50,7 +50,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                   itemCount: snap.data!.docs.length,
                                   data: snap.data!.docs,
                                   orderID: snapshot.data!.docs[index].id,
-                                  seperateQuantiesList:
+                                  seperateQuantitiesList:
                                       seperateORderItemQuantities(
                                           (snapshot.data!.docs[index].data()!
                                                   as Map<String, dynamic>)[
