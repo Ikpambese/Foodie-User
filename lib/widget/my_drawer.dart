@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:food_userapp/authentication/auth_screen.dart';
 import 'package:food_userapp/global/global.dart';
+import 'package:food_userapp/screens/address.dart';
+import 'package:food_userapp/screens/history.dart';
 import 'package:food_userapp/screens/home_screen.dart';
 import 'package:food_userapp/screens/my_orders_screen.dart';
+import 'package:food_userapp/screens/search_screen.dart';
 
 class MyDrawer extends StatelessWidget {
   @override
@@ -85,7 +88,12 @@ class MyDrawer extends StatelessWidget {
                     'History',
                     style: TextStyle(color: Colors.black),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => HistoryScreen()));
+                  },
                 ),
                 const Divider(height: 10, color: Colors.grey, thickness: 2),
                 ListTile(
@@ -94,7 +102,14 @@ class MyDrawer extends StatelessWidget {
                     'Search',
                     style: TextStyle(color: Colors.black),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (c) => SearchScreen(),
+                      ),
+                    );
+                  },
                 ),
                 const Divider(height: 10, color: Colors.grey, thickness: 2),
                 ListTile(
@@ -103,7 +118,12 @@ class MyDrawer extends StatelessWidget {
                     'Add New Address',
                     style: TextStyle(color: Colors.black),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AddressScreen()));
+                  },
                 ),
                 const Divider(height: 10, color: Colors.grey, thickness: 2),
                 ListTile(
