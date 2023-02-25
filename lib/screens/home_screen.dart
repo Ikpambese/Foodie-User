@@ -1,7 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:food_userapp/assistants/assistant_methods.dart';
+import 'package:food_userapp/authentication/login_screen.dart';
 import 'package:food_userapp/global/global.dart';
 import 'package:food_userapp/models/sellers.dart';
 import 'package:food_userapp/widget/sellersdesign.dart';
@@ -50,6 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    restrictctBlockedeUser();
     clearCartNow(context);
   }
 
@@ -155,5 +158,21 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
     );
+  }
+
+  restrictctBlockedeUser() async {
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(firebaseAuth.currentUser!.uid)
+        .get()
+        .then((snapshot) {
+      if (snapshot.data()!['userSatus'] != 'approved') {
+        Fluttertoast.showToast(
+            msg: 'You have been blocked \n\n Mail Here : admin@lunchbox.com');
+        firebaseAuth.signOut();
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const LoginScreen()));
+      }
+    });
   }
 }
