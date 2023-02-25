@@ -6,6 +6,7 @@ import 'package:food_userapp/assistants/assistant_methods.dart';
 import 'package:food_userapp/authentication/login_screen.dart';
 import 'package:food_userapp/global/global.dart';
 import 'package:food_userapp/models/sellers.dart';
+import 'package:food_userapp/splash/splash_screen.dart';
 import 'package:food_userapp/widget/sellersdesign.dart';
 import 'package:food_userapp/widget/my_drawer.dart';
 import 'package:food_userapp/widget/progress_bar.dart';
@@ -53,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     restrictctBlockedeUser();
-    clearCartNow(context);
+    //clearCartNow(context);
   }
 
   @override
@@ -171,7 +172,9 @@ class _HomeScreenState extends State<HomeScreen> {
             msg: 'You have been blocked \n\n Mail Here : admin@lunchbox.com');
         firebaseAuth.signOut();
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const LoginScreen()));
+            MaterialPageRoute(builder: (context) => const MySplashScreen()));
+      } else {
+        clearCartNow(context);
       }
     });
   }
