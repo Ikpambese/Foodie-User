@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import '../global/global.dart';
 import '../screens/home_screen.dart';
 import '../widget/custom_text_field.dart';
@@ -83,21 +84,29 @@ class _LoginScreenState extends State<LoginScreen> {
         .get()
         .then((snapshot) async {
       if (snapshot.exists) {
-        await sharedPreferences!.setString('uid', currentUser.uid);
-        await sharedPreferences!
-            .setString('email', snapshot.data()!['userEmail']);
-        await sharedPreferences!
-            .setString('name', snapshot.data()!['userName']);
-        await sharedPreferences!
-            .setString('photoUrl', snapshot.data()!['userAvatarUrl']);
+        if (snapshot.data()!['userSatus'] == 'approved') {
+          await sharedPreferences!.setString('uid', currentUser.uid);
+          await sharedPreferences!
+              .setString('email', snapshot.data()!['userEmail']);
+          await sharedPreferences!
+              .setString('name', snapshot.data()!['userName']);
+          await sharedPreferences!
+              .setString('photoUrl', snapshot.data()!['userAvatarUrl']);
 
-        List<String> userCartList =
-            snapshot.data()!['userCart'].cast<String>(); // We had
-        //type 'List<dynamic>' is not a subtype of type 'List<String>' solved by adding .cast^
-        await sharedPreferences!.setStringList('userCart', userCartList);
-        Navigator.pop(context);
-        Navigator.push(
-            context, MaterialPageRoute(builder: (c) => const HomeScreen()));
+          List<String> userCartList =
+              snapshot.data()!['userCart'].cast<String>(); // We had
+          //type 'List<dynamic>' is not a subtype of type 'List<String>' solved by adding .cast^
+          await sharedPreferences!.setStringList('userCart', userCartList);
+          Navigator.pop(context);
+          Navigator.push(
+              context, MaterialPageRoute(builder: (c) => const HomeScreen()));
+        } else {
+          firebaseAuth.signOut();
+          Navigator.pop(context);
+          Fluttertoast.showToast(
+              msg:
+                  'Admin has blocked your account \n\n Mail Here :admin@lunchbox.com');
+        }
       } else {
         firebaseAuth.signOut();
         Navigator.pop(context);
