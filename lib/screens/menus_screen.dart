@@ -10,7 +10,6 @@ import 'package:food_userapp/models/sellers.dart';
 import 'package:food_userapp/widget/menusdesign.dart';
 import 'package:provider/provider.dart';
 import '../assistants/cartitem_counter.dart';
-import '../widget/my_drawer.dart';
 import '../widget/text_widget.dart';
 
 class MenusScreen extends StatefulWidget {
@@ -45,11 +44,12 @@ class _MenusScreenState extends State<MenusScreen> {
               clearCartNow(context);
               Provider.of<CartItemCounter>(context, listen: false)
                   .displayCartListItemsNumber();
+              Navigator.pop(context);
             },
             icon: Icon(Icons.arrow_back)),
         title: const Text(
-          'Ifood',
-          style: TextStyle(fontSize: 45, fontFamily: 'Signatra'),
+          'LuncBox',
+          style: TextStyle(fontSize: 45, fontFamily: 'Acme'),
         ),
         centerTitle: true,
         //automaticallyImplyLeading: false,
@@ -59,7 +59,7 @@ class _MenusScreenState extends State<MenusScreen> {
           SliverPersistentHeader(
             pinned: true,
             delegate: TextWidget(
-                title: widget.model!.sellerName.toString() + 'My Menus'),
+                title: widget.model!.sellerName.toString() + ' Menus'),
           ),
           StreamBuilder<QuerySnapshot>(
             stream: FirebaseFirestore.instance

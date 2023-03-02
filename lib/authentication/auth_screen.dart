@@ -33,7 +33,7 @@ class _AuthScreenState extends State<AuthScreen> {
           ),
           automaticallyImplyLeading: false, // removes back arrow
           title: const Text(
-            'iFood',
+            'LuncBox',
             style: TextStyle(
                 fontFamily: 'Train', fontSize: 60, color: Colors.white),
           ),

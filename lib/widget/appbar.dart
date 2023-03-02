@@ -42,7 +42,7 @@ class _MyAppBarState extends State<MyAppBar> {
         },
       ),
       title: const Text(
-        "iFood",
+        "LuncBox",
         style: TextStyle(fontSize: 45, fontFamily: "Signatra"),
       ),
       centerTitle: true,

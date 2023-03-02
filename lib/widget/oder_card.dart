@@ -19,37 +19,39 @@ class OrderCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (c) => OrderDeatilsScreen(orderID: orderID)));
-      },
-      child: Container(
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-          colors: [
-            Colors.black12,
-            Colors.white54,
-          ],
-          begin: FractionalOffset(0.0, 0.0),
-          end: FractionalOffset(1.0, 0.0),
-          stops: [0.0, 1.0],
-          tileMode: TileMode.clamp,
-        )),
-        padding: const EdgeInsets.all(10),
-        margin: const EdgeInsets.all(10),
-        height: itemCount! * 125,
-        child: ListView.builder(
-          itemCount: itemCount,
-          physics: NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) {
-            Items model =
-                Items.fromJson(data![index].data()! as Map<String, dynamic>);
-            return placedOrderDesignWidget(
-                model, context, seperateQuantitiesList![index]);
-          },
+    return Card(
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (c) => OrderDeatilsScreen(orderID: orderID)));
+        },
+        child: Container(
+          // decoration: const BoxDecoration(
+          //     gradient: LinearGradient(
+          //   colors: [
+          //     Colors.cyan,
+          //     Colors.cyanAccent,
+          //   ],
+          //   begin: FractionalOffset(0.0, 0.0),
+          //   end: FractionalOffset(1.0, 0.0),
+          //   stops: [0.0, 1.0],
+          //   tileMode: TileMode.clamp,
+          // )),
+          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
+          height: itemCount! * 125,
+          child: ListView.builder(
+            itemCount: itemCount,
+            physics: NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
+              Items model =
+                  Items.fromJson(data![index].data()! as Map<String, dynamic>);
+              return placedOrderDesignWidget(
+                  model, context, seperateQuantitiesList![index]);
+            },
+          ),
         ),
       ),
     );
@@ -60,13 +62,18 @@ Widget placedOrderDesignWidget(
     Items model, BuildContext context, seperateQuantitiesList) {
   return Container(
     width: MediaQuery.of(context).size.width,
-    height: 120,
-    color: Colors.grey[200],
+    height: 100,
+    //color: Colors.grey[200],
     child: Row(
       children: [
-        Image.network(
-          model.thumbnailUrl!,
-          width: 120,
+        ClipOval(
+          clipBehavior: Clip.antiAlias,
+          child: Image.network(
+            model.thumbnailUrl!,
+            width: 50,
+            height: 50,
+            fit: BoxFit.cover,
+          ),
         ),
         const SizedBox(
           width: 10.0,
@@ -95,7 +102,7 @@ Widget placedOrderDesignWidget(
                     width: 10,
                   ),
                   const Text(
-                    "€ ",
+                    "₦",
                     style: TextStyle(fontSize: 16.0, color: Colors.blue),
                   ),
                   Text(

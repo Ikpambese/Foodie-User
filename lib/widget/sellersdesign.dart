@@ -23,49 +23,72 @@ class _SellersDesignState extends State<SellersDesign> {
                 builder: (context) => MenusScreen(model: widget.model)));
       },
       splashColor: Colors.amber,
-      child: Padding(
-        padding: const EdgeInsets.all(5.0),
-        child: SizedBox(
-          height: 280,
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            children: [
-              Divider(
-                height: 4,
-                thickness: 3,
-                color: Colors.grey[300],
-              ),
-              Image.network(
+      child: Container(
+        margin: const EdgeInsets.all(20),
+        height: 150,
+        child: Stack(children: [
+          Positioned.fill(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.network(
                 widget.model!.sellerAvatarUrl!,
-                height: 210.0,
                 fit: BoxFit.cover,
               ),
-              const SizedBox(
-                height: 1.0,
-              ),
-              Text(
-                widget.model!.sellerName!,
-                style: const TextStyle(
-                  color: Colors.cyan,
-                  fontSize: 20,
-                  fontFamily: "Train",
-                ),
-              ),
-              Text(
-                widget.model!.sellerEmail!,
-                style: const TextStyle(
-                  color: Colors.grey,
-                  fontSize: 12,
-                ),
-              ),
-              Divider(
-                height: 4,
-                thickness: 3,
-                color: Colors.grey[300],
-              ),
-            ],
+            ),
           ),
-        ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              height: 120,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
+                ),
+                gradient: LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                  colors: [
+                    Colors.black.withOpacity(0.7),
+                    Colors.transparent,
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                children: [
+                  ClipOval(
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      color: Colors.cyan,
+                      child: const Icon(
+                        Icons.restaurant_menu,
+                        size: 30,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Text(
+                    widget.model!.sellerName!,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontFamily: 'Acme',
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )
+        ]),
       ),
     );
   }

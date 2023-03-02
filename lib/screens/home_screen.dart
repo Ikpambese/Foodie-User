@@ -6,7 +6,11 @@ import 'package:food_userapp/assistants/assistant_methods.dart';
 import 'package:food_userapp/authentication/login_screen.dart';
 import 'package:food_userapp/global/global.dart';
 import 'package:food_userapp/models/sellers.dart';
+import 'package:food_userapp/screens/address.dart';
+import 'package:food_userapp/screens/cart_screen.dart';
+import 'package:food_userapp/screens/history.dart';
 import 'package:food_userapp/splash/splash_screen.dart';
+import 'package:food_userapp/widget/bottom_nav.dart';
 import 'package:food_userapp/widget/sellersdesign.dart';
 import 'package:food_userapp/widget/my_drawer.dart';
 import 'package:food_userapp/widget/progress_bar.dart';
@@ -50,6 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
     'slider/26.jpg',
     'slider/27.jpg',
   ];
+
   @override
   void initState() {
     super.initState();
@@ -60,28 +65,44 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          padding: const EdgeInsets.only(bottom: 20),
+          decoration: BoxDecoration(color: Colors.white, boxShadow: [
+            BoxShadow(
+              blurRadius: 20,
+              color: Colors.black.withOpacity(0.2),
+              offset: Offset.zero,
+            )
+          ]),
+          height: 100,
+          child: ButtomNav(),
+        ),
+      ),
       appBar: AppBar(
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Colors.cyan,
-                Colors.amber,
-              ],
-              begin: FractionalOffset(0.0, 0.0),
-              end: FractionalOffset(1.0, 0.0),
-              stops: [0.0, 1.0],
-              tileMode: TileMode.clamp,
+        title: const Text(
+          'LuncBox',
+          style: TextStyle(
+              fontSize: 40, fontFamily: 'Signatra', color: Colors.cyan),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        iconTheme: const IconThemeData(color: Colors.cyan),
+        actions: [
+          Container(
+            margin: const EdgeInsets.only(right: 10, top: 5),
+            child: ClipOval(
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                child: const Icon(
+                  Icons.person,
+                  size: 30,
+                  color: Colors.black,
+                ),
+              ),
             ),
           ),
-        ),
-        title: const Text(
-          'iFood',
-          style: TextStyle(
-            fontSize: 45,
-            fontFamily: 'Signatra',
-          ),
-        ),
+        ],
         centerTitle: true,
         // automaticallyImplyLeading: false,
       ),
@@ -112,16 +133,25 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   items: items.map((index) {
                     return Builder(builder: (BuildContext context) {
-                      return Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.black,
-                        ),
-                        width: MediaQuery.of(context).size.width,
-                        margin: const EdgeInsets.symmetric(horizontal: 1.0),
-                        child: Padding(
-                          padding: const EdgeInsets.all(4),
-                          child: Image.asset(index, fit: BoxFit.fill),
-                        ),
+                      return Column(
+                        children: [
+                          Container(
+                            height: 150,
+                            decoration: const BoxDecoration(
+                                color: Colors.cyan,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10))),
+                            width: MediaQuery.of(context).size.width,
+                            margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                            child: Padding(
+                              padding: const EdgeInsets.all(4),
+                              child: Image.asset(
+                                index,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ),
+                        ],
                       );
                     });
                   }).toList(),
@@ -129,6 +159,29 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
+          SliverToBoxAdapter(
+              child: Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Text(
+                  'Select Kitchen',
+                  style: TextStyle(
+                      color: Colors.cyan,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15),
+                ),
+                Text(
+                  '....',
+                  style: TextStyle(
+                      color: Colors.cyan,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
+                )
+              ],
+            ),
+          )),
           StreamBuilder<QuerySnapshot>(
             stream:
                 FirebaseFirestore.instance.collection("sellers").snapshots(),
