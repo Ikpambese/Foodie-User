@@ -17,26 +17,17 @@ class SimpleAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      iconTheme: IconThemeData(color: Colors.amber[900]),
-      flexibleSpace: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Colors.cyan,
-              Colors.amber,
-            ],
-            begin: FractionalOffset(0.0, 0.0),
-            end: FractionalOffset(1.0, 0.0),
-            stops: [0.0, 1.0],
-            tileMode: TileMode.clamp,
-          ),
-        ),
-      ),
+      iconTheme: const IconThemeData(color: Colors.cyan),
+      elevation: 0,
+      backgroundColor: Colors.transparent,
       centerTitle: true,
       title: Text(
         title!,
         style: const TextStyle(
-            fontSize: 45, fontFamily: 'Signatra', letterSpacing: 3),
+            fontSize: 45,
+            fontFamily: 'Signatra',
+            letterSpacing: 3,
+            color: Colors.cyan),
       ),
 
       // automaticallyImplyLeading: false,

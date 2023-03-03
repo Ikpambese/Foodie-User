@@ -68,9 +68,11 @@ class MyDrawer extends StatelessWidget {
                   title: const Text(
                     'Home',
                     style: TextStyle(
-                        color: Colors.cyan,
-                        fontFamily: 'Acme',
-                        letterSpacing: 3),
+                      color: Colors.cyan,
+                      fontFamily: 'Acme',
+                      fontSize: 30,
+                      letterSpacing: 3,
+                    ),
                   ),
                   onTap: () {
                     Navigator.push(context,
@@ -82,7 +84,12 @@ class MyDrawer extends StatelessWidget {
                   leading: const Icon(Icons.reorder, color: Colors.cyan),
                   title: const Text(
                     'My Order',
-                    style: TextStyle(color: Colors.cyan),
+                    style: TextStyle(
+                      color: Colors.cyan,
+                      fontFamily: 'Acme',
+                      fontSize: 30,
+                      letterSpacing: 3,
+                    ),
                   ),
                   onTap: () {
                     Navigator.push(
@@ -96,7 +103,12 @@ class MyDrawer extends StatelessWidget {
                   leading: const Icon(Icons.access_time, color: Colors.cyan),
                   title: const Text(
                     'History',
-                    style: TextStyle(color: Colors.cyan),
+                    style: TextStyle(
+                      color: Colors.cyan,
+                      fontFamily: 'Acme',
+                      fontSize: 30,
+                      letterSpacing: 3,
+                    ),
                   ),
                   onTap: () {
                     Navigator.push(
@@ -110,7 +122,12 @@ class MyDrawer extends StatelessWidget {
                   leading: const Icon(Icons.search, color: Colors.cyan),
                   title: const Text(
                     'Search',
-                    style: TextStyle(color: Colors.cyan),
+                    style: TextStyle(
+                      color: Colors.cyan,
+                      fontFamily: 'Acme',
+                      fontSize: 30,
+                      letterSpacing: 3,
+                    ),
                   ),
                   onTap: () {
                     Navigator.push(
@@ -126,7 +143,12 @@ class MyDrawer extends StatelessWidget {
                   leading: const Icon(Icons.add_location, color: Colors.cyan),
                   title: const Text(
                     'Add New Address',
-                    style: TextStyle(color: Colors.cyan),
+                    style: TextStyle(
+                      color: Colors.cyan,
+                      fontFamily: 'Acme',
+                      fontSize: 30,
+                      letterSpacing: 3,
+                    ),
                   ),
                   onTap: () {
                     Navigator.push(
@@ -140,7 +162,12 @@ class MyDrawer extends StatelessWidget {
                   leading: const Icon(Icons.exit_to_app, color: Colors.cyan),
                   title: const Text(
                     'Sign Out',
-                    style: TextStyle(color: Colors.cyan),
+                    style: TextStyle(
+                      color: Colors.cyan,
+                      fontFamily: 'Acme',
+                      fontSize: 30,
+                      letterSpacing: 3,
+                    ),
                   ),
                   onTap: () {
                     firebaseAuth.signOut().then((value) => {

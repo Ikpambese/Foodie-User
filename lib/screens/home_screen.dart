@@ -162,23 +162,46 @@ class _HomeScreenState extends State<HomeScreen> {
           SliverToBoxAdapter(
               child: Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text(
-                  'Select Kitchen',
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Hello,',
                   style: TextStyle(
-                      color: Colors.cyan,
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 15),
                 ),
                 Text(
-                  '....',
-                  style: TextStyle(
+                  sharedPreferences!.getString('name')!.toUpperCase(),
+                  style: const TextStyle(
                       color: Colors.cyan,
                       fontWeight: FontWeight.bold,
                       fontSize: 20),
-                )
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text(
+                      'Select Kitchen',
+                      style: TextStyle(
+                          color: Colors.cyan,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15),
+                    ),
+                    Text(
+                      '....',
+                      style: TextStyle(
+                          color: Colors.cyan,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20),
+                    )
+                  ],
+                ),
               ],
             ),
           )),

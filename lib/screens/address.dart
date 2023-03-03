@@ -34,7 +34,7 @@ class _AddressScreenState extends State<AddressScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: SimpleAppBar(
-        title: 'AFOODIE',
+        title: 'LunchBox',
       ),
       floatingActionButton: FloatingActionButton.extended(
         icon: const Icon(Icons.add_location),

@@ -21,20 +21,9 @@ class _MyAppBarState extends State<MyAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      flexibleSpace: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Colors.cyan,
-              Colors.amber,
-            ],
-            begin: FractionalOffset(0.0, 0.0),
-            end: FractionalOffset(1.0, 0.0),
-            stops: [0.0, 1.0],
-            tileMode: TileMode.clamp,
-          ),
-        ),
-      ),
+      backgroundColor: Colors.transparent,
+      elevation: 0.0,
+      iconTheme: const IconThemeData(color: Colors.cyan),
       leading: IconButton(
         icon: const Icon(Icons.arrow_back),
         onPressed: () {
@@ -98,3 +87,31 @@ class _MyAppBarState extends State<MyAppBar> {
     );
   }
 }
+
+
+// AppBar(
+//         title: const Text(
+//           'LuncBox',
+//           style: TextStyle(
+//               fontSize: 40, fontFamily: 'Signatra', color: Colors.cyan),
+//         ),
+
+//         actions: [
+//           Container(
+//             margin: const EdgeInsets.only(right: 10, top: 5),
+//             child: ClipOval(
+//               child: Container(
+//                 padding: const EdgeInsets.all(10),
+//                 child: const Icon(
+//                   Icons.person,
+//                   size: 30,
+//                   color: Colors.black,
+//                 ),
+//               ),
+//             ),
+//           ),
+//         ],
+//         centerTitle: true,
+//         // automaticallyImplyLeading: false,
+//       ),
+    
