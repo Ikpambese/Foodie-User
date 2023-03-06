@@ -3,12 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:food_userapp/assistants/assistant_methods.dart';
-import 'package:food_userapp/authentication/login_screen.dart';
 import 'package:food_userapp/global/global.dart';
 import 'package:food_userapp/models/sellers.dart';
-import 'package:food_userapp/screens/address.dart';
-import 'package:food_userapp/screens/cart_screen.dart';
-import 'package:food_userapp/screens/history.dart';
 import 'package:food_userapp/splash/splash_screen.dart';
 import 'package:food_userapp/widget/bottom_nav.dart';
 import 'package:food_userapp/widget/sellersdesign.dart';
@@ -93,13 +89,14 @@ class _HomeScreenState extends State<HomeScreen> {
             margin: const EdgeInsets.only(right: 10, top: 5),
             child: ClipOval(
               child: Container(
-                padding: const EdgeInsets.all(10),
-                child: const Icon(
-                  Icons.person,
-                  size: 30,
-                  color: Colors.black,
-                ),
-              ),
+                  padding: const EdgeInsets.all(10),
+                  child: ClipOval(
+                    child: Image.network(
+                      sharedPreferences!.getString('photoUrl')!,
+                      height: 100,
+                      width: 100,
+                    ),
+                  )),
             ),
           ),
         ],

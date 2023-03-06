@@ -99,8 +99,11 @@ class _OrderDeatilsScreenState extends State<OrderDeatilsScreen> {
                           builder: (c, snapshot) {
                             return snapshot.hasData
                                 ? ShipmentAddressDesign(
-                                    model: Address.fromJson(snapshot.data!
-                                        .data()! as Map<String, dynamic>),
+                                    model: Address.fromJson(
+                                      snapshot.data!.data()!
+                                          as Map<String, dynamic>,
+                                    ),
+                                    orderID: widget.orderID,
                                   )
                                 : Center(
                                     child: circularProgress(),

@@ -28,17 +28,6 @@ class OrderCard extends StatelessWidget {
                   builder: (c) => OrderDeatilsScreen(orderID: orderID)));
         },
         child: Container(
-          // decoration: const BoxDecoration(
-          //     gradient: LinearGradient(
-          //   colors: [
-          //     Colors.cyan,
-          //     Colors.cyanAccent,
-          //   ],
-          //   begin: FractionalOffset(0.0, 0.0),
-          //   end: FractionalOffset(1.0, 0.0),
-          //   stops: [0.0, 1.0],
-          //   tileMode: TileMode.clamp,
-          // )),
           padding: const EdgeInsets.all(10),
           margin: const EdgeInsets.all(10),
           height: itemCount! * 125,
