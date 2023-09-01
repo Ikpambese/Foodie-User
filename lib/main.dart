@@ -1,12 +1,12 @@
+import 'package:LunchBox/splash/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:food_userapp/assistants/cartitem_counter.dart';
-import 'package:food_userapp/assistants/total_amount.dart';
-import 'package:food_userapp/splash/splash_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'assistants/address_changer.dart';
+import 'assistants/cartitem_counter.dart';
+import 'assistants/total_amount.dart';
 import 'global/global.dart';
 
 Future<void> main() async {

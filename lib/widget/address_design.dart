@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:food_userapp/assistants/address_changer.dart';
-import 'package:food_userapp/maps/maps.dart';
-import 'package:food_userapp/models/address.dart';
-import 'package:food_userapp/screens/placed_order.dart';
+
 import 'package:provider/provider.dart';
+
+import '../assistants/address_changer.dart';
+import '../maps/maps.dart';
+import '../models/address.dart';
+import '../screens/placed_order.dart';
 
 class AddressDesign extends StatefulWidget {
   final Address? model;

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:food_userapp/assistants/cartitem_counter.dart';
-import 'package:food_userapp/screens/cart_screen.dart';
+
 import 'package:provider/provider.dart';
 
-class MyAppBar extends StatefulWidget with PreferredSizeWidget {
+import '../assistants/cartitem_counter.dart';
+import '../screens/cart_screen.dart';
+
+class MyAppBar extends StatefulWidget {
   final PreferredSizeWidget? bottom;
   final String? sellerUID;
   MyAppBar({this.bottom, this.sellerUID});
@@ -87,31 +89,3 @@ class _MyAppBarState extends State<MyAppBar> {
     );
   }
 }
-
-
-// AppBar(
-//         title: const Text(
-//           'LuncBox',
-//           style: TextStyle(
-//               fontSize: 40, fontFamily: 'Signatra', color: Colors.cyan),
-//         ),
-
-//         actions: [
-//           Container(
-//             margin: const EdgeInsets.only(right: 10, top: 5),
-//             child: ClipOval(
-//               child: Container(
-//                 padding: const EdgeInsets.all(10),
-//                 child: const Icon(
-//                   Icons.person,
-//                   size: 30,
-//                   color: Colors.black,
-//                 ),
-//               ),
-//             ),
-//           ),
-//         ],
-//         centerTitle: true,
-//         // automaticallyImplyLeading: false,
-//       ),
-    

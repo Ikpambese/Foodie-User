@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors
 
+import 'package:LunchBox/widget/progress_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:food_userapp/widget/progress_bar.dart';
 
 class LoadingDialog extends StatelessWidget {
   final String? message;

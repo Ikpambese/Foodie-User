@@ -1,16 +1,16 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:food_userapp/assistants/assistant_methods.dart';
-import 'package:food_userapp/global/global.dart';
-import 'package:food_userapp/models/sellers.dart';
-import 'package:food_userapp/splash/splash_screen.dart';
-import 'package:food_userapp/widget/bottom_nav.dart';
-import 'package:food_userapp/widget/sellersdesign.dart';
-import 'package:food_userapp/widget/my_drawer.dart';
-import 'package:food_userapp/widget/progress_bar.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import '../assistants/assistant_methods.dart';
+import '../global/global.dart';
+import '../models/sellers.dart';
+import '../splash/splash_screen.dart';
+import '../widget/bottom_nav.dart';
+import '../widget/my_drawer.dart';
+import '../widget/progress_bar.dart';
+import '../widget/sellersdesign.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

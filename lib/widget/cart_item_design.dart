@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_userapp/models/items.dart';
+
+import '../models/items.dart';
 
 class CartItemDesign extends StatefulWidget {
   final Items? model;

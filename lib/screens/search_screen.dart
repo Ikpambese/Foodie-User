@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:food_userapp/models/sellers.dart';
-import 'package:food_userapp/widget/sellersdesign.dart';
+
+import '../models/sellers.dart';
+import '../widget/sellersdesign.dart';
 
 class SearchScreen extends StatefulWidget {
   @override

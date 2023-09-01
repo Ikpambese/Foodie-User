@@ -1,8 +1,9 @@
 // ignore_for_file: must_be_immutable, library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:food_userapp/models/menu_model.dart';
-import 'package:food_userapp/screens/items_screen.dart';
+
+import '../models/menu_model.dart';
+import '../screens/items_screen.dart';
 
 class MenusDesignWidget extends StatefulWidget {
   Menus? model;

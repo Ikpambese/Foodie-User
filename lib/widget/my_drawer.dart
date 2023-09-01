@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:food_userapp/authentication/auth_screen.dart';
-import 'package:food_userapp/global/global.dart';
-import 'package:food_userapp/screens/address.dart';
-import 'package:food_userapp/screens/history.dart';
-import 'package:food_userapp/screens/home_screen.dart';
-import 'package:food_userapp/screens/my_orders_screen.dart';
-import 'package:food_userapp/screens/search_screen.dart';
+
+import '../authentication/auth_screen.dart';
+import '../global/global.dart';
+import '../screens/address.dart';
+import '../screens/history.dart';
+import '../screens/home_screen.dart';
+import '../screens/my_orders_screen.dart';
+import '../screens/search_screen.dart';
 
 class MyDrawer extends StatelessWidget {
   @override

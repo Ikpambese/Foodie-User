@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:food_userapp/models/items.dart';
-import 'package:food_userapp/widget/appbar.dart';
+
 import 'package:number_inc_dec/number_inc_dec.dart';
 
 import '../assistants/assistant_methods.dart';
+import '../models/items.dart';
+import '../widget/appbar.dart';
 
 class ItemDetailsScreen extends StatefulWidget {
   final Items? model;
@@ -20,7 +21,7 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(sellerUID: widget.model!.sellerUID),
+      // appBar: MyAppBar(sellerUID: widget.model!.sellerUID),
       body: SingleChildScrollView(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Image.network(

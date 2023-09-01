@@ -3,9 +3,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:food_userapp/assistants/assistant_methods.dart';
-import 'package:food_userapp/global/global.dart';
-import 'package:food_userapp/screens/home_screen.dart';
+
+import '../assistants/assistant_methods.dart';
+import '../global/global.dart';
+import 'home_screen.dart';
 
 class PlacedOrderScreen extends StatefulWidget {
   String? addressID;

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:food_userapp/models/address.dart';
-import 'package:food_userapp/screens/order_trackingscreen.dart';
-import 'package:food_userapp/splash/splash_screen.dart';
+
+import '../models/address.dart';
+import '../screens/order_trackingscreen.dart';
+import '../splash/splash_screen.dart';
 
 class ShipmentAddressDesign extends StatelessWidget {
   final Address? model;
@@ -100,12 +101,12 @@ class ShipmentAddressDesign extends StatelessWidget {
               child: Center(
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => TrackerScreen(
-                                  orderID: orderID,
-                                )));
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) => TrackerScreen(
+                    //               orderID: orderID,
+                    //             )));
                   },
                   child: Container(
                     decoration: const BoxDecoration(

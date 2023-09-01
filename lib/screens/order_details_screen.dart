@@ -2,12 +2,14 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:food_userapp/global/global.dart';
-import 'package:food_userapp/widget/progress_bar.dart';
-import 'package:food_userapp/widget/shipment.dart';
-import 'package:food_userapp/widget/status_barnner.dart';
+
+import '../global/global.dart';
 import '../models/address.dart';
 import 'package:intl/intl.dart';
+
+import '../widget/progress_bar.dart';
+import '../widget/shipment.dart';
+import '../widget/status_barnner.dart';
 
 class OrderDeatilsScreen extends StatefulWidget {
   final String? orderID;

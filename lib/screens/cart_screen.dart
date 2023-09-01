@@ -1,18 +1,19 @@
 // ignore_for_file: prefer_is_empty
 
+import 'package:LunchBox/assistants/assistant_methods.dart';
+import 'package:LunchBox/screens/address.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:food_userapp/assistants/assistant_methods.dart';
-import 'package:food_userapp/assistants/cartitem_counter.dart';
-import 'package:food_userapp/assistants/total_amount.dart';
-import 'package:food_userapp/models/items.dart';
-import 'package:food_userapp/screens/address.dart';
-import 'package:food_userapp/splash/splash_screen.dart';
-import 'package:food_userapp/widget/cart_item_design.dart';
-import 'package:food_userapp/widget/progress_bar.dart';
-import 'package:food_userapp/widget/text_widget.dart';
 import 'package:provider/provider.dart';
+
+import '../assistants/cartitem_counter.dart';
+import '../assistants/total_amount.dart';
+import '../models/items.dart';
+import '../splash/splash_screen.dart';
+import '../widget/cart_item_design.dart';
+import '../widget/progress_bar.dart';
+import '../widget/text_widget.dart';
 
 class CartScreen extends StatefulWidget {
   final String? sellerUID;

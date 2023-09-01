@@ -3,10 +3,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:food_userapp/models/items.dart';
-import 'package:food_userapp/models/menu_model.dart';
-import 'package:food_userapp/widget/appbar.dart';
-import 'package:food_userapp/widget/items_design.dart';
+
+import '../models/items.dart';
+import '../models/menu_model.dart';
+import '../widget/appbar.dart';
+import '../widget/items_design.dart';
 import '../widget/text_widget.dart';
 
 class ItemsScrenn extends StatefulWidget {
@@ -22,7 +23,7 @@ class _ItemsScrennState extends State<ItemsScrenn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(sellerUID: widget.model!.sellerUID),
+      // appBar: MyAppBar(sellerUID: widget.model!.sellerUID),
       body: CustomScrollView(
         slivers: [
           SliverPersistentHeader(

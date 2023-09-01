@@ -3,12 +3,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:food_userapp/global/global.dart';
-import 'package:food_userapp/models/address.dart';
-import 'package:food_userapp/widget/simple_appbar.dart';
-import 'package:food_userapp/widget/text_field.dart';
+
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+
+import '../global/global.dart';
+import '../models/address.dart';
+import '../widget/simple_appbar.dart';
+import '../widget/text_field.dart';
 
 class SaveAddressScreen extends StatelessWidget {
   final _name = TextEditingController();
@@ -49,9 +51,9 @@ class SaveAddressScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SimpleAppBar(
-        title: 'AFOODIE',
-      ),
+      // appBar: SimpleAppBar(
+      //   title: 'LunchBox',
+      // ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: (() {
           // save address info

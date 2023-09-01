@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:food_userapp/assistants/cartitem_counter.dart';
-import 'package:food_userapp/global/global.dart';
+
 import 'package:provider/provider.dart';
+
+import '../global/global.dart';
+import 'cartitem_counter.dart';
 
 seperateOrderItemIDs(orderIDs) {
   List<String> separateItemIDsList = [], defaultItemList = [];

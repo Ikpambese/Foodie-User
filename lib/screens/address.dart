@@ -1,16 +1,17 @@
 // ignore_for_file: prefer_is_empty
 
+import 'package:LunchBox/screens/saved_address_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:food_userapp/assistants/address_changer.dart';
-import 'package:food_userapp/models/address.dart';
-import 'package:food_userapp/screens/saved_address_screen.dart';
-import 'package:food_userapp/widget/address_design.dart';
-import 'package:food_userapp/widget/progress_bar.dart';
-import 'package:food_userapp/widget/simple_appbar.dart';
+
 import 'package:provider/provider.dart';
 
+import '../assistants/address_changer.dart';
 import '../global/global.dart';
+import '../models/address.dart';
+import '../widget/address_design.dart';
+import '../widget/progress_bar.dart';
+import '../widget/simple_appbar.dart';
 
 class AddressScreen extends StatefulWidget {
   final double? totalAmount;
@@ -33,9 +34,9 @@ class _AddressScreenState extends State<AddressScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SimpleAppBar(
-        title: 'LunchBox',
-      ),
+      // appBar: SimpleAppBar(
+      //   title: 'LunchBox',
+      // ),
       floatingActionButton: FloatingActionButton.extended(
         icon: const Icon(Icons.add_location),
         backgroundColor: Colors.cyan,

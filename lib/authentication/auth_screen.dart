@@ -1,5 +1,5 @@
+import 'package:LunchBox/authentication/register_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:food_userapp/authentication/register_screen.dart';
 
 import 'login_screen.dart';
 

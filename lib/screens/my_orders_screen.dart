@@ -1,10 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:food_userapp/assistants/assistant_methods.dart';
-import 'package:food_userapp/global/global.dart';
-import 'package:food_userapp/widget/oder_card.dart';
-import 'package:food_userapp/widget/progress_bar.dart';
-import 'package:food_userapp/widget/simple_appbar.dart';
+
+import '../assistants/assistant_methods.dart';
+import '../global/global.dart';
+import '../widget/oder_card.dart';
+import '../widget/progress_bar.dart';
+import '../widget/simple_appbar.dart';
 
 class MyOrdersScreen extends StatefulWidget {
   @override
@@ -16,9 +17,9 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: SimpleAppBar(
-          title: "My Orders",
-        ),
+        // appBar: SimpleAppBar(
+        //   title: "My Orders",
+        // ),
         body: StreamBuilder<QuerySnapshot>(
           stream: FirebaseFirestore.instance
               .collection("users")

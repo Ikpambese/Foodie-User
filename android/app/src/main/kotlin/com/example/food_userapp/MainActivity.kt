@@ -1,4 +1,4 @@
-package com.example.food_userapp
+package com.example.LuncBox
 
 import io.flutter.embedding.android.FlutterActivity
 

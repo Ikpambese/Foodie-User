@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_userapp/screens/home_screen.dart';
+
+import '../screens/home_screen.dart';
 
 class StatusBarnner extends StatelessWidget {
   final bool? status;

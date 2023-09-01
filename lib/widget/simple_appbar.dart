@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-class SimpleAppBar extends StatelessWidget with PreferredSizeWidget {
+class SimpleAppBar extends StatelessWidget  {
   final PreferredSizeWidget? bottom;
   String? title;
   SimpleAppBar({this.bottom, this.title});
